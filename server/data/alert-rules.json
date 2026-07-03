@@ -1,0 +1,13 @@
+[
+  {
+    "id": "AR-20260703013031-yiz4",
+    "modelId": "VM001",
+    "imei": "868371055248377",
+    "alertType": "coverage",
+    "metric": "rsrp",
+    "threshold": -110,
+    "durationSec": 60,
+    "createdAt": "2026-07-03T01:30:31.155Z",
+    "updatedAt": "2026-07-03T01:30:31.155Z"
+  }
+]

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故障定界定位 | V-Wise Coordinator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E293B',
+                        accent: '#3B82F6',
+                        success: '#22C55E',
+                        warning: '#F59E0B',
+                        danger: '#EF4444',
+                        background: '#020617',
+                        surface: '#0F172A',
+                        muted: '#64748B',
+                        border: '#1E3A5F'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+        .scrollbar-thin::-webkit-scrollbar-track { background: #1E293B; }
+        .scrollbar-thin::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        .pulse-dot { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3B82F6, #1E293B);
+        }
+    </style>
+</head>
+<body class="bg-background text-slate-100 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar (Same as index) -->
+        <aside class="w-64 bg-surface border-r border-border flex flex-col">
+            <div class="p-6 border-b border-border">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold text-white">V-Wise</h1>
+                        <p class="text-xs text-muted">网络汇聚-分析-调度中心</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto scrollbar-thin">
+                <a href="index.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                    </svg>
+                    <span class="font-medium">总览仪表盘</span>
+                </a>
+
+                <div class="pt-4">
+                    <p class="px-4 text-xs font-medium text-muted uppercase tracking-wider mb-2">数据管理</p>
+                    <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                        </svg>
+                        <span>数据汇聚</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                        </svg>
+                        <span>车企数据源</span>
+                    </a>
+                    <a href="network-heatmap.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                        <span>网络覆盖热力图</span>
+                    </a>
+                </div>
+
+                <div class="pt-4">
+                    <p class="px-4 text-xs font-medium text-muted uppercase tracking-wider mb-2">系统对接</p>
+                    <a href="bss-integration.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        <span>BSS对接</span>
+                    </a>
+                    <a href="5g-capability.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.398 8.687c5.356-5.355 14.028-5.355 19.384 0"/>
+                        </svg>
+                        <span>5G能力调度</span>
+                    </a>
+                    <a href="nef-capability.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>NEF能力开放</span>
+                    </a>
+                </div>
+
+                <div class="pt-4">
+                    <p class="px-4 text-xs font-medium text-muted uppercase tracking-wider mb-2">故障分析</p>
+                    <a href="fault-diagnosis.html" class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg bg-accent/10 text-accent border border-accent/20 cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        <span>定界定位</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:bg-secondary hover:text-white cursor-pointer transition-all duration-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span>故障记录</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="p-4 border-t border-border">
+                <div class="flex items-center gap-3 px-2">
+                    <div class="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium truncate">管理员</p>
+                        <p class="text-xs text-muted">中国移动车联网</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto scrollbar-thin">
+            <header class="sticky top-0 z-10 bg-background/80 backdrop-blur-xl border-b border-border">
+                <div class="px-6 py-4 flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-sm text-muted mb-1">
+                            <a href="index.html" class="hover:text-white cursor-pointer transition-colors">首页</a>
+                            <span>/</span>
+                            <span>故障分析</span>
+                            <span>/</span>
+                            <span class="text-white">定界定位</span>
+                        </div>
+                        <h2 class="text-xl font-semibold">故障定界定位分析</h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button class="px-4 py-2 bg-secondary border border-border rounded-lg text-sm hover:bg-secondary/80 cursor-pointer transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            导出报告
+                        </button>
+                        <button class="px-4 py-2 bg-accent rounded-lg text-sm text-white hover:bg-accent/80 cursor-pointer transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            查询故障
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 space-y-6">
+                <!-- Fault Case Detail -->
+                <div class="bg-surface border border-border rounded-xl overflow-hidden">
+                    <div class="p-5 border-b border-border bg-secondary/30">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-danger/10 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-white text-lg">故障案例 #FD-2024-0115-001</h3>
+                                    <p class="text-sm text-muted">检测时间: 2024-01-15 14:23:45</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1.5 rounded-lg bg-danger/20 text-danger font-medium text-sm">网络侧故障</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-accent/20 text-accent font-medium text-sm">已定界</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 grid grid-cols-3 gap-6">
+                        <!-- Vehicle Info -->
+                        <div class="space-y-4">
+                            <h4 class="font-medium text-slate-300 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                </svg>
+                                车辆信息
+                            </h4>
+                            <div class="bg-secondary/50 rounded-lg p-4 space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">车牌号</span>
+                                    <span class="text-white font-medium">京A·12345</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">车企来源</span>
+                                    <span class="text-white font-medium">比亚迪汽车</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">T-BOX型号</span>
+                                    <span class="text-white font-medium">BYD-TB2023</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">SIM卡号</span>
+                                    <span class="text-white font-medium">147****5678</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">当前位置</span>
+                                    <span class="text-white font-medium">北京市朝阳区</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Network Status -->
+                        <div class="space-y-4">
+                            <h4 class="font-medium text-slate-300 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.398 8.687c5.356-5.355 14.028-5.355 19.384 0"/>
+                                </svg>
+                                网络状态
+                            </h4>
+                            <div class="bg-secondary/50 rounded-lg p-4 space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">网络类型</span>
+                                    <span class="text-white font-medium">5G-SA</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">RSRP信号强度</span>
+                                    <span class="text-danger font-medium">-115 dBm</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">RSRQ质量</span>
+                                    <span class="text-warning font-medium">-18 dB</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">SINR信噪比</span>
+                                    <span class="text-danger font-medium">-2 dB</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">PCI物理小区</span>
+                                    <span class="text-white font-medium">256</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fault Diagnosis -->
+                        <div class="space-y-4">
+                            <h4 class="font-medium text-slate-300 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                                定界结论
+                            </h4>
+                            <div class="bg-secondary/50 rounded-lg p-4 space-y-3">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">故障类型</span>
+                                    <span class="text-white font-medium">弱覆盖</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">定界结果</span>
+                                    <span class="text-danger font-medium">网络侧原因</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">置信度</span>
+                                    <span class="text-success font-medium">94.5%</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">影响范围</span>
+                                    <span class="text-white font-medium">周边3km</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-muted">建议措施</span>
+                                    <span class="text-accent font-medium">基站优化</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnosis Process Timeline -->
+                <div class="bg-surface border border-border rounded-xl p-5">
+                    <h3 class="font-semibold text-white mb-4">定界定位分析过程</h3>
+                    <div class="relative timeline-line pl-8">
+                        <!-- Step 1 -->
+                        <div class="mb-6 relative">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center border-2 border-accent">
+                                <span class="text-accent font-semibold text-xs">1</span>
+                            </div>
+                            <div class="bg-secondary/50 rounded-lg p-4 ml-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-white">数据采集阶段</span>
+                                    <span class="text-xs text-muted">14:23:45 - 14:24:12</span>
+                                </div>
+                                <p class="text-sm text-slate-300">从车企平台获取车辆网络日志、T-BOX诊断数据、SIM卡状态信息</p>
+                                <div class="flex items-center gap-4 mt-3 text-xs text-muted">
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3 h-3 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        车辆日志已获取
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3 h-3 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        T-BOX数据正常
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="mb-6 relative">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-success/20 flex items-center justify-center border-2 border-success">
+                                <span class="text-success font-semibold text-xs">2</span>
+                            </div>
+                            <div class="bg-secondary/50 rounded-lg p-4 ml-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-white">BSS数据融合</span>
+                                    <span class="text-xs text-muted">14:24:12 - 14:25:03</span>
+                                </div>
+                                <p class="text-sm text-slate-300">对接运营商BOSS系统，获取用户话单、基站工参、网络拓扑数据</p>
+                                <div class="flex items-center gap-4 mt-3 text-xs text-muted">
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3 h-3 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        话单数据已同步
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg class="w-3 h-3 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        基站工参已匹配
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="mb-6 relative">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-warning/20 flex items-center justify-center border-2 border-warning">
+                                <span class="text-warning font-semibold text-xs">3</span>
+                            </div>
+                            <div class="bg-secondary/50 rounded-lg p-4 ml-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-white">特征分析</span>
+                                    <span class="text-xs text-muted">14:25:03 - 14:26:18</span>
+                                </div>
+                                <p class="text-sm text-slate-300">分析信号质量变化趋势、切换成功率、邻区关系，识别异常特征</p>
+                                <div class="grid grid-cols-3 gap-2 mt-3">
+                                    <div class="bg-secondary rounded p-2 text-center">
+                                        <p class="text-xs text-muted">信号波动</p>
+                                        <p class="text-sm font-medium text-danger">异常</p>
+                                    </div>
+                                    <div class="bg-secondary rounded p-2 text-center">
+                                        <p class="text-xs text-muted">切换失败率</p>
+                                        <p class="text-sm font-medium text-warning">45%</p>
+                                    </div>
+                                    <div class="bg-secondary rounded p-2 text-center">
+                                        <p class="text-xs text-muted">邻区数量</p>
+                                        <p class="text-sm font-medium text-danger">1个</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="absolute left-0 w-8 h-8 rounded-full bg-danger/20 flex items-center justify-center border-2 border-danger">
+                                <span class="text-danger font-semibold text-xs">4</span>
+                            </div>
+                            <div class="bg-secondary/50 rounded-lg p-4 ml-4 border border-danger/30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-medium text-white">定界判定</span>
+                                    <span class="text-xs text-muted">14:26:18 - 14:27:05</span>
+                                </div>
+                                <p class="text-sm text-slate-300">综合分析车辆侧与网络侧数据，判定故障根源归属</p>
+                                <div class="mt-3 p-3 bg-danger/10 rounded-lg border border-danger/30">
+                                    <div class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-danger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-danger">定界结论: 网络侧故障</p>
+                                            <p class="text-xs text-muted mt-1">基站256覆盖范围不足，周边邻区配置缺失，建议进行基站优化或新建站点</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Signal Quality Trend -->
+                    <div class="bg-surface border border-border rounded-xl p-5">
+                        <h3 class="font-semibold text-white mb-4">信号质量变化趋势</h3>
+                        <div class="h-64">
+                            <canvas id="signalChart"></canvas>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-sm">
+                            <div class="flex items-center gap-4">
+                                <span class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-accent"></span>
+                                    <span class="text-muted">RSRP</span>
+                                </span>
+                                <span class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-success"></span>
+                                    <span class="text-muted">RSRQ</span>
+                                </span>
+                            </div>
+                            <span class="text-xs text-muted">故障发生时段已标红</span>
+                        </div>
+                    </div>
+
+                    <!-- Fault Attribution -->
+                    <div class="bg-surface border border-border rounded-xl p-5">
+                        <h3 class="font-semibold text-white mb-4">故障归属分析</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-danger/10 rounded-lg p-4 border border-danger/30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-slate-300">网络侧指标</span>
+                                    <span class="px-2 py-0.5 text-xs rounded bg-danger/20 text-danger">异常</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">覆盖强度</span>
+                                        <span class="text-danger font-medium">-115dBm (弱)</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">切换成功率</span>
+                                        <span class="text-danger font-medium">55% (低)</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">邻区配置</span>
+                                        <span class="text-danger font-medium">缺失</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-success/10 rounded-lg p-4 border border-success/30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-slate-300">车辆侧指标</span>
+                                    <span class="px-2 py-0.5 text-xs rounded bg-success/20 text-success">正常</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">T-BOX状态</span>
+                                        <span class="text-success font-medium">在线</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">SIM卡状态</span>
+                                        <span class="text-success font-medium">正常</span>
+                                    </div>
+                                    <div class="flex justify-between text-xs">
+                                        <span class="text-muted">天线连接</span>
+                                        <span class="text-success font-medium">正常</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-48">
+                            <canvas id="attributionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="bg-surface border border-border rounded-xl p-5">
+                    <h3 class="font-semibold text-white mb-4">处理建议</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-secondary/50 rounded-lg p-4 hover:bg-secondary transition-colors cursor-pointer">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-5 0H9m0 0H5m0 0H2m2 0v-2a2 2 0 012-2h2m4 0h2a2 2 0 012 2v2"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-white">基站优化</span>
+                            </div>
+                            <p class="text-sm text-muted">调整基站256的天线方向角和发射功率，增强目标区域覆盖强度</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs">
+                                <span class="px-2 py-1 rounded bg-accent/10 text-accent">优先级: 高</span>
+                                <span class="px-2 py-1 rounded bg-warning/10 text-warning">预计工期: 3天</span>
+                            </div>
+                        </div>
+                        <div class="bg-secondary/50 rounded-lg p-4 hover:bg-secondary transition-colors cursor-pointer">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-white">邻区配置</span>
+                            </div>
+                            <p class="text-sm text-muted">完善基站256的邻区关系配置，增加周边站点切换候选</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs">
+                                <span class="px-2 py-1 rounded bg-success/10 text-success">优先级: 中</span>
+                                <span class="px-2 py-1 rounded bg-accent/10 text-accent">预计工期: 1天</span>
+                            </div>
+                        </div>
+                        <div class="bg-secondary/50 rounded-lg p-4 hover:bg-secondary transition-colors cursor-pointer">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                    </svg>
+                                </div>
+                                <span class="font-medium text-white">新建站点</span>
+                            </div>
+                            <p class="text-sm text-muted">在朝阳区该区域规划新建5G站点，彻底解决弱覆盖问题</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs">
+                                <span class="px-2 py-1 rounded bg-muted/10 text-muted">优先级: 低</span>
+                                <span class="px-2 py-1 rounded bg-warning/10 text-warning">预计工期: 30天</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Signal Quality Chart
+        const signalCtx = document.getElementById('signalChart').getContext('2d');
+        const signalData = {
+            labels: ['14:00', '14:05', '14:10', '14:15', '14:20', '14:23', '14:25', '14:30', '14:35', '14:40'],
+            rsrp: [-95, -98, -102, -108, -112, -115, -118, -116, -110, -105],
+            rsrq: [-12, -14, -15, -16, -17, -18, -19, -18, -16, -14]
+        };
+
+        new Chart(signalCtx, {
+            type: 'line',
+            data: {
+                labels: signalData.labels,
+                datasets: [{
+                    label: 'RSRP (dBm)',
+                    data: signalData.rsrp,
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: signalData.rsrp.map(v => v < -110 ? '#EF4444' : '#3B82F6'),
+                    borderWidth: 2
+                }, {
+                    label: 'RSRQ (dB)',
+                    data: signalData.rsrq,
+                    borderColor: '#22C55E',
+                    backgroundColor: 'transparent',
+                    fill: false,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: signalData.rsrq.map(v => v < -15 ? '#EF4444' : '#22C55E'),
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    legend: { display: false },
+                    annotation: {
+                        annotations: {
+                            faultZone: {
+                                type: 'box',
+                                xMin: '14:23',
+                                xMax: '14:25',
+                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                                borderColor: 'rgba(239, 68, 68, 0.3)'
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(30, 58, 95, 0.3)', drawBorder: false },
+                        ticks: { color: '#64748B' }
+                    },
+                    y: {
+                        grid: { color: 'rgba(30, 58, 95, 0.3)', drawBorder: false },
+                        ticks: { color: '#64748B' }
+                    }
+                }
+            }
+        });
+
+        // Attribution Chart
+        const attributionCtx = document.getElementById('attributionChart').getContext('2d');
+        new Chart(attributionCtx, {
+            type: 'radar',
+            data: {
+                labels: ['信号强度', '连接稳定性', '切换成功率', '数据吞吐', '延迟指标', '覆盖质量'],
+                datasets: [{
+                    label: '网络侧',
+                    data: [25, 40, 55, 45, 60, 30],
+                    borderColor: '#EF4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#EF4444'
+                }, {
+                    label: '车辆侧',
+                    data: [85, 90, 88, 92, 95, 88],
+                    borderColor: '#22C55E',
+                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#22C55E'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: { color: '#94A3B8', padding: 15 }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: 'rgba(30, 58, 95, 0.3)' },
+                        angleLines: { color: 'rgba(30, 58, 95, 0.3)' },
+                        pointLabels: { color: '#94A3B8' },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

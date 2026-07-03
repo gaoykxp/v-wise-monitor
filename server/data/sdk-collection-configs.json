@@ -1,0 +1,110 @@
+[
+  {
+    "id": "SCC-20260702074914-fd1d",
+    "name": "gao",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每1分钟",
+    "intervalSec": 60,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T07:49:14.960Z",
+    "updatedAt": "2026-07-02T07:49:14.962Z"
+  },
+  {
+    "id": "SCC-20260702063326-jcbt",
+    "name": "full",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每1分钟",
+    "intervalSec": 60,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T06:33:26.164Z",
+    "updatedAt": "2026-07-02T06:33:26.165Z"
+  },
+  {
+    "id": "SCC-20260702062750-v8z4",
+    "name": "gao",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每5分钟",
+    "intervalSec": 300,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T06:27:50.406Z",
+    "updatedAt": "2026-07-02T06:27:50.409Z"
+  },
+  {
+    "id": "SCC-20260702062746-w735",
+    "name": "gao",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每1分钟",
+    "intervalSec": 60,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T06:27:46.172Z",
+    "updatedAt": "2026-07-02T06:27:46.174Z"
+  },
+  {
+    "id": "SCC-20260702035612-szkz",
+    "name": "ttttt",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每5分钟",
+    "intervalSec": 300,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T03:56:12.134Z",
+    "updatedAt": "2026-07-02T03:56:12.135Z"
+  },
+  {
+    "id": "SCC-20260702035315-8qbb",
+    "name": "xxx",
+    "scope": "model",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vids": [
+      "868371055248377"
+    ],
+    "category": "full",
+    "frequency": "每1分钟",
+    "intervalSec": 60,
+    "retention": "30天",
+    "retentionDays": 30,
+    "dispatched": true,
+    "createdAt": "2026-07-02T03:53:15.835Z",
+    "updatedAt": "2026-07-02T03:53:15.836Z"
+  }
+]

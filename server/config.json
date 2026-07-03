@@ -1,0 +1,27 @@
+{
+  "mqtt": {
+    "broker": "mqtt://118.178.133.202:1883",
+    "username": "v-wise-monitor-client001",
+    "password": "123456",
+    "clientId": "v-wise-monitor-client001",
+    "topics": ["probe/devices/#", "v-wise-network/#"]
+  },
+  "server": {
+    "port": 3000,
+    "corsOrigin": "*"
+  },
+  "vehicleModels": [
+    { "id": "VM001", "name": "智行 X1", "brand": "智行汽车", "year": 2024, "totalVehicles": 1280, "description": "智能纯电轿车" },
+    { "id": "VM002", "name": "领航者 Pro", "brand": "领航汽车", "year": 2024, "totalVehicles": 856, "description": "智能SUV" },
+    { "id": "VM003", "name": "城市精灵", "brand": "绿动出行", "year": 2023, "totalVehicles": 2340, "description": "城市微型电动车" },
+    { "id": "VM004", "name": "星际旅行者", "brand": "星际汽车", "year": 2024, "totalVehicles": 420, "description": "高端商务MPV" },
+    { "id": "VM005", "name": "闪电 GT", "brand": "极速科技", "year": 2024, "totalVehicles": 680, "description": "高性能电动跑车" }
+  ],
+  "imeiModelMapping": {
+    "868371055248377": "VM001",
+    "868220032249471": "VM002",
+    "868220032249472": "VM003",
+    "868220032249473": "VM004",
+    "868220032249474": "VM005"
+  }
+}

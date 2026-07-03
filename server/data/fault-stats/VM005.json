@@ -1,0 +1,2760 @@
+{
+  "schemaVersion": 1,
+  "modelId": "VM005",
+  "modelName": "闪电 GT",
+  "updatedAt": "2026-06-17T07:20:44.991Z",
+  "summary": {
+    "totalVehicles": 680,
+    "faultCount": 54,
+    "faultRate": "7.94",
+    "cards": {
+      "signalWeakCount": 21,
+      "registerFailCount": 13,
+      "offlineCount": 18
+    }
+  },
+  "categories": [
+    {
+      "id": "signal_weak",
+      "name": "信号弱",
+      "color": "amber"
+    },
+    {
+      "id": "network_resource",
+      "name": "网络资源不足",
+      "color": "orange"
+    },
+    {
+      "id": "no_network",
+      "name": "无网络资源",
+      "color": "red"
+    },
+    {
+      "id": "switch_4_5g",
+      "name": "4/5G切换",
+      "color": "blue"
+    },
+    {
+      "id": "restart",
+      "name": "重启",
+      "color": "purple"
+    },
+    {
+      "id": "bandwidth",
+      "name": "带宽竞争",
+      "color": "cyan"
+    },
+    {
+      "id": "register_fail",
+      "name": "注册失败",
+      "color": "rose"
+    },
+    {
+      "id": "handover_fail",
+      "name": "切换失败",
+      "color": "pink"
+    }
+  ],
+  "records": [
+    {
+      "date": "2026-04-19",
+      "categories": {
+        "signal_weak": {
+          "count": 16,
+          "total": 114,
+          "percent": "14.0"
+        },
+        "network_resource": {
+          "count": 34,
+          "total": 298,
+          "percent": "11.4"
+        },
+        "no_network": {
+          "count": 45,
+          "total": 219,
+          "percent": "20.5"
+        },
+        "switch_4_5g": {
+          "count": 15,
+          "total": 203,
+          "percent": "7.4"
+        },
+        "restart": {
+          "count": 14,
+          "total": 258,
+          "percent": "5.4"
+        },
+        "bandwidth": {
+          "count": 44,
+          "total": 228,
+          "percent": "19.3"
+        },
+        "register_fail": {
+          "count": 29,
+          "total": 165,
+          "percent": "17.6"
+        },
+        "handover_fail": {
+          "count": 7,
+          "total": 181,
+          "percent": "3.9"
+        }
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "categories": {
+        "signal_weak": {
+          "count": 8,
+          "total": 136,
+          "percent": "5.9"
+        },
+        "network_resource": {
+          "count": 48,
+          "total": 228,
+          "percent": "21.1"
+        },
+        "no_network": {
+          "count": 17,
+          "total": 133,
+          "percent": "12.8"
+        },
+        "switch_4_5g": {
+          "count": 53,
+          "total": 225,
+          "percent": "23.6"
+        },
+        "restart": {
+          "count": 42,
+          "total": 184,
+          "percent": "22.8"
+        },
+        "bandwidth": {
+          "count": 10,
+          "total": 290,
+          "percent": "3.4"
+        },
+        "register_fail": {
+          "count": 5,
+          "total": 155,
+          "percent": "3.2"
+        },
+        "handover_fail": {
+          "count": 37,
+          "total": 275,
+          "percent": "13.5"
+        }
+      }
+    },
+    {
+      "date": "2026-04-21",
+      "categories": {
+        "signal_weak": {
+          "count": 51,
+          "total": 161,
+          "percent": "31.7"
+        },
+        "network_resource": {
+          "count": 45,
+          "total": 275,
+          "percent": "16.4"
+        },
+        "no_network": {
+          "count": 36,
+          "total": 180,
+          "percent": "20.0"
+        },
+        "switch_4_5g": {
+          "count": 46,
+          "total": 250,
+          "percent": "18.4"
+        },
+        "restart": {
+          "count": 25,
+          "total": 297,
+          "percent": "8.4"
+        },
+        "bandwidth": {
+          "count": 47,
+          "total": 291,
+          "percent": "16.2"
+        },
+        "register_fail": {
+          "count": 18,
+          "total": 172,
+          "percent": "10.5"
+        },
+        "handover_fail": {
+          "count": 46,
+          "total": 188,
+          "percent": "24.5"
+        }
+      }
+    },
+    {
+      "date": "2026-04-22",
+      "categories": {
+        "signal_weak": {
+          "count": 44,
+          "total": 290,
+          "percent": "15.2"
+        },
+        "network_resource": {
+          "count": 42,
+          "total": 122,
+          "percent": "34.4"
+        },
+        "no_network": {
+          "count": 5,
+          "total": 227,
+          "percent": "2.2"
+        },
+        "switch_4_5g": {
+          "count": 39,
+          "total": 179,
+          "percent": "21.8"
+        },
+        "restart": {
+          "count": 12,
+          "total": 106,
+          "percent": "11.3"
+        },
+        "bandwidth": {
+          "count": 38,
+          "total": 188,
+          "percent": "20.2"
+        },
+        "register_fail": {
+          "count": 27,
+          "total": 285,
+          "percent": "9.5"
+        },
+        "handover_fail": {
+          "count": 5,
+          "total": 101,
+          "percent": "5.0"
+        }
+      }
+    },
+    {
+      "date": "2026-04-23",
+      "categories": {
+        "signal_weak": {
+          "count": 37,
+          "total": 219,
+          "percent": "16.9"
+        },
+        "network_resource": {
+          "count": 39,
+          "total": 169,
+          "percent": "23.1"
+        },
+        "no_network": {
+          "count": 24,
+          "total": 170,
+          "percent": "14.1"
+        },
+        "switch_4_5g": {
+          "count": 32,
+          "total": 108,
+          "percent": "29.6"
+        },
+        "restart": {
+          "count": 49,
+          "total": 115,
+          "percent": "42.6"
+        },
+        "bandwidth": {
+          "count": 25,
+          "total": 285,
+          "percent": "8.8"
+        },
+        "register_fail": {
+          "count": 36,
+          "total": 198,
+          "percent": "18.2"
+        },
+        "handover_fail": {
+          "count": 18,
+          "total": 214,
+          "percent": "8.4"
+        }
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "categories": {
+        "signal_weak": {
+          "count": 30,
+          "total": 148,
+          "percent": "20.3"
+        },
+        "network_resource": {
+          "count": 32,
+          "total": 216,
+          "percent": "14.8"
+        },
+        "no_network": {
+          "count": 43,
+          "total": 217,
+          "percent": "19.8"
+        },
+        "switch_4_5g": {
+          "count": 25,
+          "total": 237,
+          "percent": "10.5"
+        },
+        "restart": {
+          "count": 32,
+          "total": 228,
+          "percent": "14.0"
+        },
+        "bandwidth": {
+          "count": 16,
+          "total": 286,
+          "percent": "5.6"
+        },
+        "register_fail": {
+          "count": 49,
+          "total": 111,
+          "percent": "44.1"
+        },
+        "handover_fail": {
+          "count": 27,
+          "total": 127,
+          "percent": "21.3"
+        }
+      }
+    },
+    {
+      "date": "2026-04-25",
+      "categories": {
+        "signal_weak": {
+          "count": 23,
+          "total": 277,
+          "percent": "8.3"
+        },
+        "network_resource": {
+          "count": 29,
+          "total": 263,
+          "percent": "11.0"
+        },
+        "no_network": {
+          "count": 12,
+          "total": 264,
+          "percent": "4.5"
+        },
+        "switch_4_5g": {
+          "count": 18,
+          "total": 166,
+          "percent": "10.8"
+        },
+        "restart": {
+          "count": 19,
+          "total": 237,
+          "percent": "8.0"
+        },
+        "bandwidth": {
+          "count": 53,
+          "total": 183,
+          "percent": "29.0"
+        },
+        "register_fail": {
+          "count": 8,
+          "total": 224,
+          "percent": "3.6"
+        },
+        "handover_fail": {
+          "count": 40,
+          "total": 240,
+          "percent": "16.7"
+        }
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "categories": {
+        "signal_weak": {
+          "count": 12,
+          "total": 102,
+          "percent": "11.8"
+        },
+        "network_resource": {
+          "count": 26,
+          "total": 110,
+          "percent": "23.6"
+        },
+        "no_network": {
+          "count": 31,
+          "total": 111,
+          "percent": "27.9"
+        },
+        "switch_4_5g": {
+          "count": 11,
+          "total": 191,
+          "percent": "5.8"
+        },
+        "restart": {
+          "count": 52,
+          "total": 246,
+          "percent": "21.1"
+        },
+        "bandwidth": {
+          "count": 44,
+          "total": 280,
+          "percent": "15.7"
+        },
+        "register_fail": {
+          "count": 21,
+          "total": 137,
+          "percent": "15.3"
+        },
+        "handover_fail": {
+          "count": 49,
+          "total": 153,
+          "percent": "32.0"
+        }
+      }
+    },
+    {
+      "date": "2026-04-27",
+      "categories": {
+        "signal_weak": {
+          "count": 5,
+          "total": 231,
+          "percent": "2.2"
+        },
+        "network_resource": {
+          "count": 23,
+          "total": 157,
+          "percent": "14.6"
+        },
+        "no_network": {
+          "count": 50,
+          "total": 158,
+          "percent": "31.6"
+        },
+        "switch_4_5g": {
+          "count": 54,
+          "total": 120,
+          "percent": "45.0"
+        },
+        "restart": {
+          "count": 39,
+          "total": 159,
+          "percent": "24.5"
+        },
+        "bandwidth": {
+          "count": 35,
+          "total": 281,
+          "percent": "12.5"
+        },
+        "register_fail": {
+          "count": 30,
+          "total": 250,
+          "percent": "12.0"
+        },
+        "handover_fail": {
+          "count": 8,
+          "total": 266,
+          "percent": "3.0"
+        }
+      }
+    },
+    {
+      "date": "2026-04-28",
+      "categories": {
+        "signal_weak": {
+          "count": 48,
+          "total": 160,
+          "percent": "30.0"
+        },
+        "network_resource": {
+          "count": 16,
+          "total": 204,
+          "percent": "7.8"
+        },
+        "no_network": {
+          "count": 19,
+          "total": 101,
+          "percent": "18.8"
+        },
+        "switch_4_5g": {
+          "count": 47,
+          "total": 249,
+          "percent": "18.9"
+        },
+        "restart": {
+          "count": 26,
+          "total": 168,
+          "percent": "15.5"
+        },
+        "bandwidth": {
+          "count": 22,
+          "total": 178,
+          "percent": "12.4"
+        },
+        "register_fail": {
+          "count": 39,
+          "total": 163,
+          "percent": "23.9"
+        },
+        "handover_fail": {
+          "count": 21,
+          "total": 179,
+          "percent": "11.7"
+        }
+      }
+    },
+    {
+      "date": "2026-04-29",
+      "categories": {
+        "signal_weak": {
+          "count": 41,
+          "total": 289,
+          "percent": "14.2"
+        },
+        "network_resource": {
+          "count": 13,
+          "total": 251,
+          "percent": "5.2"
+        },
+        "no_network": {
+          "count": 38,
+          "total": 148,
+          "percent": "25.7"
+        },
+        "switch_4_5g": {
+          "count": 40,
+          "total": 178,
+          "percent": "22.5"
+        },
+        "restart": {
+          "count": 9,
+          "total": 177,
+          "percent": "5.1"
+        },
+        "bandwidth": {
+          "count": 13,
+          "total": 275,
+          "percent": "4.7"
+        },
+        "register_fail": {
+          "count": 52,
+          "total": 276,
+          "percent": "18.8"
+        },
+        "handover_fail": {
+          "count": 30,
+          "total": 292,
+          "percent": "10.3"
+        }
+      }
+    },
+    {
+      "date": "2026-04-30",
+      "categories": {
+        "signal_weak": {
+          "count": 33,
+          "total": 207,
+          "percent": "15.9"
+        },
+        "network_resource": {
+          "count": 27,
+          "total": 285,
+          "percent": "9.5"
+        },
+        "no_network": {
+          "count": 10,
+          "total": 262,
+          "percent": "3.8"
+        },
+        "switch_4_5g": {
+          "count": 28,
+          "total": 296,
+          "percent": "9.5"
+        },
+        "restart": {
+          "count": 37,
+          "total": 207,
+          "percent": "17.9"
+        },
+        "bandwidth": {
+          "count": 29,
+          "total": 137,
+          "percent": "21.2"
+        },
+        "register_fail": {
+          "count": 28,
+          "total": 266,
+          "percent": "10.5"
+        },
+        "handover_fail": {
+          "count": 10,
+          "total": 282,
+          "percent": "3.5"
+        }
+      }
+    },
+    {
+      "date": "2026-05-01",
+      "categories": {
+        "signal_weak": {
+          "count": 24,
+          "total": 122,
+          "percent": "19.7"
+        },
+        "network_resource": {
+          "count": 50,
+          "total": 186,
+          "percent": "26.9"
+        },
+        "no_network": {
+          "count": 9,
+          "total": 235,
+          "percent": "3.8"
+        },
+        "switch_4_5g": {
+          "count": 19,
+          "total": 211,
+          "percent": "9.0"
+        },
+        "restart": {
+          "count": 8,
+          "total": 298,
+          "percent": "2.7"
+        },
+        "bandwidth": {
+          "count": 34,
+          "total": 172,
+          "percent": "19.8"
+        },
+        "register_fail": {
+          "count": 19,
+          "total": 197,
+          "percent": "9.6"
+        },
+        "handover_fail": {
+          "count": 47,
+          "total": 117,
+          "percent": "40.2"
+        }
+      }
+    },
+    {
+      "date": "2026-05-02",
+      "categories": {
+        "signal_weak": {
+          "count": 17,
+          "total": 251,
+          "percent": "6.8"
+        },
+        "network_resource": {
+          "count": 47,
+          "total": 233,
+          "percent": "20.2"
+        },
+        "no_network": {
+          "count": 28,
+          "total": 282,
+          "percent": "9.9"
+        },
+        "switch_4_5g": {
+          "count": 12,
+          "total": 140,
+          "percent": "8.6"
+        },
+        "restart": {
+          "count": 41,
+          "total": 107,
+          "percent": "38.3"
+        },
+        "bandwidth": {
+          "count": 25,
+          "total": 269,
+          "percent": "9.3"
+        },
+        "register_fail": {
+          "count": 28,
+          "total": 214,
+          "percent": "13.1"
+        },
+        "handover_fail": {
+          "count": 6,
+          "total": 230,
+          "percent": "2.6"
+        }
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "categories": {
+        "signal_weak": {
+          "count": 10,
+          "total": 180,
+          "percent": "5.6"
+        },
+        "network_resource": {
+          "count": 44,
+          "total": 280,
+          "percent": "15.7"
+        },
+        "no_network": {
+          "count": 47,
+          "total": 129,
+          "percent": "36.4"
+        },
+        "switch_4_5g": {
+          "count": 5,
+          "total": 269,
+          "percent": "1.9"
+        },
+        "restart": {
+          "count": 28,
+          "total": 116,
+          "percent": "24.1"
+        },
+        "bandwidth": {
+          "count": 12,
+          "total": 270,
+          "percent": "4.4"
+        },
+        "register_fail": {
+          "count": 37,
+          "total": 127,
+          "percent": "29.1"
+        },
+        "handover_fail": {
+          "count": 19,
+          "total": 143,
+          "percent": "13.3"
+        }
+      }
+    },
+    {
+      "date": "2026-05-04",
+      "categories": {
+        "signal_weak": {
+          "count": 53,
+          "total": 205,
+          "percent": "25.9"
+        },
+        "network_resource": {
+          "count": 41,
+          "total": 127,
+          "percent": "32.3"
+        },
+        "no_network": {
+          "count": 16,
+          "total": 176,
+          "percent": "9.1"
+        },
+        "switch_4_5g": {
+          "count": 48,
+          "total": 294,
+          "percent": "16.3"
+        },
+        "restart": {
+          "count": 11,
+          "total": 229,
+          "percent": "4.8"
+        },
+        "bandwidth": {
+          "count": 53,
+          "total": 167,
+          "percent": "31.7"
+        },
+        "register_fail": {
+          "count": 50,
+          "total": 240,
+          "percent": "20.8"
+        },
+        "handover_fail": {
+          "count": 28,
+          "total": 256,
+          "percent": "10.9"
+        }
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "categories": {
+        "signal_weak": {
+          "count": 46,
+          "total": 134,
+          "percent": "34.3"
+        },
+        "network_resource": {
+          "count": 34,
+          "total": 174,
+          "percent": "19.5"
+        },
+        "no_network": {
+          "count": 35,
+          "total": 119,
+          "percent": "29.4"
+        },
+        "switch_4_5g": {
+          "count": 41,
+          "total": 223,
+          "percent": "18.4"
+        },
+        "restart": {
+          "count": 48,
+          "total": 238,
+          "percent": "20.2"
+        },
+        "bandwidth": {
+          "count": 40,
+          "total": 264,
+          "percent": "15.2"
+        },
+        "register_fail": {
+          "count": 9,
+          "total": 153,
+          "percent": "5.9"
+        },
+        "handover_fail": {
+          "count": 41,
+          "total": 169,
+          "percent": "24.3"
+        }
+      }
+    },
+    {
+      "date": "2026-05-06",
+      "categories": {
+        "signal_weak": {
+          "count": 39,
+          "total": 263,
+          "percent": "14.8"
+        },
+        "network_resource": {
+          "count": 31,
+          "total": 221,
+          "percent": "14.0"
+        },
+        "no_network": {
+          "count": 54,
+          "total": 166,
+          "percent": "32.5"
+        },
+        "switch_4_5g": {
+          "count": 34,
+          "total": 152,
+          "percent": "22.4"
+        },
+        "restart": {
+          "count": 31,
+          "total": 247,
+          "percent": "12.6"
+        },
+        "bandwidth": {
+          "count": 31,
+          "total": 265,
+          "percent": "11.7"
+        },
+        "register_fail": {
+          "count": 22,
+          "total": 266,
+          "percent": "8.3"
+        },
+        "handover_fail": {
+          "count": 50,
+          "total": 282,
+          "percent": "17.7"
+        }
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "categories": {
+        "signal_weak": {
+          "count": 32,
+          "total": 192,
+          "percent": "16.7"
+        },
+        "network_resource": {
+          "count": 28,
+          "total": 268,
+          "percent": "10.4"
+        },
+        "no_network": {
+          "count": 23,
+          "total": 213,
+          "percent": "10.8"
+        },
+        "switch_4_5g": {
+          "count": 27,
+          "total": 281,
+          "percent": "9.6"
+        },
+        "restart": {
+          "count": 18,
+          "total": 160,
+          "percent": "11.3"
+        },
+        "bandwidth": {
+          "count": 18,
+          "total": 162,
+          "percent": "11.1"
+        },
+        "register_fail": {
+          "count": 31,
+          "total": 179,
+          "percent": "17.3"
+        },
+        "handover_fail": {
+          "count": 9,
+          "total": 195,
+          "percent": "4.6"
+        }
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "categories": {
+        "signal_weak": {
+          "count": 21,
+          "total": 121,
+          "percent": "17.4"
+        },
+        "network_resource": {
+          "count": 25,
+          "total": 115,
+          "percent": "21.7"
+        },
+        "no_network": {
+          "count": 42,
+          "total": 260,
+          "percent": "16.2"
+        },
+        "switch_4_5g": {
+          "count": 20,
+          "total": 210,
+          "percent": "9.5"
+        },
+        "restart": {
+          "count": 5,
+          "total": 169,
+          "percent": "3.0"
+        },
+        "bandwidth": {
+          "count": 9,
+          "total": 259,
+          "percent": "3.5"
+        },
+        "register_fail": {
+          "count": 40,
+          "total": 292,
+          "percent": "13.7"
+        },
+        "handover_fail": {
+          "count": 22,
+          "total": 108,
+          "percent": "20.4"
+        }
+      }
+    },
+    {
+      "date": "2026-05-09",
+      "categories": {
+        "signal_weak": {
+          "count": 14,
+          "total": 250,
+          "percent": "5.6"
+        },
+        "network_resource": {
+          "count": 22,
+          "total": 162,
+          "percent": "13.6"
+        },
+        "no_network": {
+          "count": 11,
+          "total": 107,
+          "percent": "10.3"
+        },
+        "switch_4_5g": {
+          "count": 13,
+          "total": 235,
+          "percent": "5.5"
+        },
+        "restart": {
+          "count": 38,
+          "total": 178,
+          "percent": "21.3"
+        },
+        "bandwidth": {
+          "count": 50,
+          "total": 260,
+          "percent": "19.2"
+        },
+        "register_fail": {
+          "count": 53,
+          "total": 205,
+          "percent": "25.9"
+        },
+        "handover_fail": {
+          "count": 31,
+          "total": 221,
+          "percent": "14.0"
+        }
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "categories": {
+        "signal_weak": {
+          "count": 6,
+          "total": 168,
+          "percent": "3.6"
+        },
+        "network_resource": {
+          "count": 32,
+          "total": 292,
+          "percent": "11.0"
+        },
+        "no_network": {
+          "count": 33,
+          "total": 117,
+          "percent": "28.2"
+        },
+        "switch_4_5g": {
+          "count": 51,
+          "total": 257,
+          "percent": "19.8"
+        },
+        "restart": {
+          "count": 16,
+          "total": 208,
+          "percent": "7.7"
+        },
+        "bandwidth": {
+          "count": 12,
+          "total": 122,
+          "percent": "9.8"
+        },
+        "register_fail": {
+          "count": 29,
+          "total": 195,
+          "percent": "14.9"
+        },
+        "handover_fail": {
+          "count": 11,
+          "total": 211,
+          "percent": "5.2"
+        }
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "categories": {
+        "signal_weak": {
+          "count": 49,
+          "total": 297,
+          "percent": "16.5"
+        },
+        "network_resource": {
+          "count": 29,
+          "total": 139,
+          "percent": "20.9"
+        },
+        "no_network": {
+          "count": 52,
+          "total": 164,
+          "percent": "31.7"
+        },
+        "switch_4_5g": {
+          "count": 44,
+          "total": 186,
+          "percent": "23.7"
+        },
+        "restart": {
+          "count": 53,
+          "total": 121,
+          "percent": "43.8"
+        },
+        "bandwidth": {
+          "count": 53,
+          "total": 219,
+          "percent": "24.2"
+        },
+        "register_fail": {
+          "count": 42,
+          "total": 108,
+          "percent": "38.9"
+        },
+        "handover_fail": {
+          "count": 20,
+          "total": 124,
+          "percent": "16.1"
+        }
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "categories": {
+        "signal_weak": {
+          "count": 42,
+          "total": 226,
+          "percent": "18.6"
+        },
+        "network_resource": {
+          "count": 26,
+          "total": 186,
+          "percent": "14.0"
+        },
+        "no_network": {
+          "count": 21,
+          "total": 211,
+          "percent": "10.0"
+        },
+        "switch_4_5g": {
+          "count": 37,
+          "total": 115,
+          "percent": "32.2"
+        },
+        "restart": {
+          "count": 36,
+          "total": 130,
+          "percent": "27.7"
+        },
+        "bandwidth": {
+          "count": 44,
+          "total": 116,
+          "percent": "37.9"
+        },
+        "register_fail": {
+          "count": 51,
+          "total": 221,
+          "percent": "23.1"
+        },
+        "handover_fail": {
+          "count": 29,
+          "total": 237,
+          "percent": "12.2"
+        }
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "categories": {
+        "signal_weak": {
+          "count": 35,
+          "total": 155,
+          "percent": "22.6"
+        },
+        "network_resource": {
+          "count": 23,
+          "total": 233,
+          "percent": "9.9"
+        },
+        "no_network": {
+          "count": 40,
+          "total": 258,
+          "percent": "15.5"
+        },
+        "switch_4_5g": {
+          "count": 30,
+          "total": 244,
+          "percent": "12.3"
+        },
+        "restart": {
+          "count": 23,
+          "total": 139,
+          "percent": "16.5"
+        },
+        "bandwidth": {
+          "count": 31,
+          "total": 117,
+          "percent": "26.5"
+        },
+        "register_fail": {
+          "count": 10,
+          "total": 134,
+          "percent": "7.5"
+        },
+        "handover_fail": {
+          "count": 42,
+          "total": 150,
+          "percent": "28.0"
+        }
+      }
+    },
+    {
+      "date": "2026-05-14",
+      "categories": {
+        "signal_weak": {
+          "count": 28,
+          "total": 180,
+          "percent": "15.6"
+        },
+        "network_resource": {
+          "count": 20,
+          "total": 280,
+          "percent": "7.1"
+        },
+        "no_network": {
+          "count": 9,
+          "total": 201,
+          "percent": "4.5"
+        },
+        "switch_4_5g": {
+          "count": 23,
+          "total": 269,
+          "percent": "8.6"
+        },
+        "restart": {
+          "count": 6,
+          "total": 252,
+          "percent": "2.4"
+        },
+        "bandwidth": {
+          "count": 22,
+          "total": 214,
+          "percent": "10.3"
+        },
+        "register_fail": {
+          "count": 23,
+          "total": 247,
+          "percent": "9.3"
+        },
+        "handover_fail": {
+          "count": 51,
+          "total": 263,
+          "percent": "19.4"
+        }
+      }
+    },
+    {
+      "date": "2026-05-15",
+      "categories": {
+        "signal_weak": {
+          "count": 21,
+          "total": 109,
+          "percent": "19.3"
+        },
+        "network_resource": {
+          "count": 13,
+          "total": 127,
+          "percent": "10.2"
+        },
+        "no_network": {
+          "count": 28,
+          "total": 248,
+          "percent": "11.3"
+        },
+        "switch_4_5g": {
+          "count": 16,
+          "total": 198,
+          "percent": "8.1"
+        },
+        "restart": {
+          "count": 43,
+          "total": 261,
+          "percent": "16.5"
+        },
+        "bandwidth": {
+          "count": 9,
+          "total": 111,
+          "percent": "8.1"
+        },
+        "register_fail": {
+          "count": 32,
+          "total": 160,
+          "percent": "20.0"
+        },
+        "handover_fail": {
+          "count": 10,
+          "total": 176,
+          "percent": "5.7"
+        }
+      }
+    },
+    {
+      "date": "2026-05-16",
+      "categories": {
+        "signal_weak": {
+          "count": 10,
+          "total": 238,
+          "percent": "4.2"
+        },
+        "network_resource": {
+          "count": 10,
+          "total": 174,
+          "percent": "5.7"
+        },
+        "no_network": {
+          "count": 47,
+          "total": 295,
+          "percent": "15.9"
+        },
+        "switch_4_5g": {
+          "count": 9,
+          "total": 127,
+          "percent": "7.1"
+        },
+        "restart": {
+          "count": 26,
+          "total": 270,
+          "percent": "9.6"
+        },
+        "bandwidth": {
+          "count": 50,
+          "total": 208,
+          "percent": "24.0"
+        },
+        "register_fail": {
+          "count": 41,
+          "total": 273,
+          "percent": "15.0"
+        },
+        "handover_fail": {
+          "count": 23,
+          "total": 289,
+          "percent": "8.0"
+        }
+      }
+    },
+    {
+      "date": "2026-05-17",
+      "categories": {
+        "signal_weak": {
+          "count": 53,
+          "total": 167,
+          "percent": "31.7"
+        },
+        "network_resource": {
+          "count": 7,
+          "total": 221,
+          "percent": "3.2"
+        },
+        "no_network": {
+          "count": 16,
+          "total": 142,
+          "percent": "11.3"
+        },
+        "switch_4_5g": {
+          "count": 52,
+          "total": 256,
+          "percent": "20.3"
+        },
+        "restart": {
+          "count": 13,
+          "total": 183,
+          "percent": "7.1"
+        },
+        "bandwidth": {
+          "count": 37,
+          "total": 209,
+          "percent": "17.7"
+        },
+        "register_fail": {
+          "count": 54,
+          "total": 186,
+          "percent": "29.0"
+        },
+        "handover_fail": {
+          "count": 32,
+          "total": 202,
+          "percent": "15.8"
+        }
+      }
+    },
+    {
+      "date": "2026-05-18",
+      "categories": {
+        "signal_weak": {
+          "count": 46,
+          "total": 296,
+          "percent": "15.5"
+        },
+        "network_resource": {
+          "count": 54,
+          "total": 268,
+          "percent": "20.1"
+        },
+        "no_network": {
+          "count": 35,
+          "total": 189,
+          "percent": "18.5"
+        },
+        "switch_4_5g": {
+          "count": 45,
+          "total": 185,
+          "percent": "24.3"
+        },
+        "restart": {
+          "count": 50,
+          "total": 192,
+          "percent": "26.0"
+        },
+        "bandwidth": {
+          "count": 28,
+          "total": 106,
+          "percent": "26.4"
+        },
+        "register_fail": {
+          "count": 13,
+          "total": 299,
+          "percent": "4.3"
+        },
+        "handover_fail": {
+          "count": 41,
+          "total": 115,
+          "percent": "35.7"
+        }
+      }
+    },
+    {
+      "date": "2026-05-19",
+      "categories": {
+        "signal_weak": {
+          "count": 39,
+          "total": 121,
+          "percent": "32.2"
+        },
+        "network_resource": {
+          "count": 47,
+          "total": 115,
+          "percent": "40.9"
+        },
+        "no_network": {
+          "count": 54,
+          "total": 132,
+          "percent": "40.9"
+        },
+        "switch_4_5g": {
+          "count": 38,
+          "total": 210,
+          "percent": "18.1"
+        },
+        "restart": {
+          "count": 33,
+          "total": 201,
+          "percent": "16.4"
+        },
+        "bandwidth": {
+          "count": 19,
+          "total": 203,
+          "percent": "9.4"
+        },
+        "register_fail": {
+          "count": 22,
+          "total": 212,
+          "percent": "10.4"
+        },
+        "handover_fail": {
+          "count": 54,
+          "total": 228,
+          "percent": "23.7"
+        }
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "categories": {
+        "signal_weak": {
+          "count": 31,
+          "total": 143,
+          "percent": "21.7"
+        },
+        "network_resource": {
+          "count": 11,
+          "total": 149,
+          "percent": "7.4"
+        },
+        "no_network": {
+          "count": 26,
+          "total": 246,
+          "percent": "10.6"
+        },
+        "switch_4_5g": {
+          "count": 26,
+          "total": 232,
+          "percent": "11.2"
+        },
+        "restart": {
+          "count": 11,
+          "total": 231,
+          "percent": "4.8"
+        },
+        "bandwidth": {
+          "count": 31,
+          "total": 265,
+          "percent": "11.7"
+        },
+        "register_fail": {
+          "count": 52,
+          "total": 202,
+          "percent": "25.7"
+        },
+        "handover_fail": {
+          "count": 34,
+          "total": 122,
+          "percent": "27.9"
+        }
+      }
+    },
+    {
+      "date": "2026-05-21",
+      "categories": {
+        "signal_weak": {
+          "count": 24,
+          "total": 272,
+          "percent": "8.8"
+        },
+        "network_resource": {
+          "count": 8,
+          "total": 196,
+          "percent": "4.1"
+        },
+        "no_network": {
+          "count": 45,
+          "total": 293,
+          "percent": "15.4"
+        },
+        "switch_4_5g": {
+          "count": 19,
+          "total": 161,
+          "percent": "11.8"
+        },
+        "restart": {
+          "count": 44,
+          "total": 240,
+          "percent": "18.3"
+        },
+        "bandwidth": {
+          "count": 22,
+          "total": 266,
+          "percent": "8.3"
+        },
+        "register_fail": {
+          "count": 15,
+          "total": 219,
+          "percent": "6.8"
+        },
+        "handover_fail": {
+          "count": 43,
+          "total": 235,
+          "percent": "18.3"
+        }
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "categories": {
+        "signal_weak": {
+          "count": 17,
+          "total": 201,
+          "percent": "8.5"
+        },
+        "network_resource": {
+          "count": 5,
+          "total": 243,
+          "percent": "2.1"
+        },
+        "no_network": {
+          "count": 14,
+          "total": 140,
+          "percent": "10.0"
+        },
+        "switch_4_5g": {
+          "count": 12,
+          "total": 290,
+          "percent": "4.1"
+        },
+        "restart": {
+          "count": 31,
+          "total": 153,
+          "percent": "20.3"
+        },
+        "bandwidth": {
+          "count": 13,
+          "total": 163,
+          "percent": "8.0"
+        },
+        "register_fail": {
+          "count": 24,
+          "total": 132,
+          "percent": "18.2"
+        },
+        "handover_fail": {
+          "count": 52,
+          "total": 148,
+          "percent": "35.1"
+        }
+      }
+    },
+    {
+      "date": "2026-05-23",
+      "categories": {
+        "signal_weak": {
+          "count": 10,
+          "total": 226,
+          "percent": "4.4"
+        },
+        "network_resource": {
+          "count": 52,
+          "total": 290,
+          "percent": "17.9"
+        },
+        "no_network": {
+          "count": 33,
+          "total": 187,
+          "percent": "17.6"
+        },
+        "switch_4_5g": {
+          "count": 5,
+          "total": 115,
+          "percent": "4.3"
+        },
+        "restart": {
+          "count": 18,
+          "total": 162,
+          "percent": "11.1"
+        },
+        "bandwidth": {
+          "count": 50,
+          "total": 260,
+          "percent": "19.2"
+        },
+        "register_fail": {
+          "count": 33,
+          "total": 245,
+          "percent": "13.5"
+        },
+        "handover_fail": {
+          "count": 15,
+          "total": 261,
+          "percent": "5.7"
+        }
+      }
+    },
+    {
+      "date": "2026-05-24",
+      "categories": {
+        "signal_weak": {
+          "count": 49,
+          "total": 155,
+          "percent": "31.6"
+        },
+        "network_resource": {
+          "count": 45,
+          "total": 137,
+          "percent": "32.8"
+        },
+        "no_network": {
+          "count": 52,
+          "total": 130,
+          "percent": "40.0"
+        },
+        "switch_4_5g": {
+          "count": 48,
+          "total": 244,
+          "percent": "19.7"
+        },
+        "restart": {
+          "count": 51,
+          "total": 171,
+          "percent": "29.8"
+        },
+        "bandwidth": {
+          "count": 41,
+          "total": 261,
+          "percent": "15.7"
+        },
+        "register_fail": {
+          "count": 46,
+          "total": 158,
+          "percent": "29.1"
+        },
+        "handover_fail": {
+          "count": 24,
+          "total": 174,
+          "percent": "13.8"
+        }
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "categories": {
+        "signal_weak": {
+          "count": 42,
+          "total": 284,
+          "percent": "14.8"
+        },
+        "network_resource": {
+          "count": 42,
+          "total": 184,
+          "percent": "22.8"
+        },
+        "no_network": {
+          "count": 21,
+          "total": 177,
+          "percent": "11.9"
+        },
+        "switch_4_5g": {
+          "count": 41,
+          "total": 173,
+          "percent": "23.7"
+        },
+        "restart": {
+          "count": 38,
+          "total": 284,
+          "percent": "13.4"
+        },
+        "bandwidth": {
+          "count": 28,
+          "total": 158,
+          "percent": "17.7"
+        },
+        "register_fail": {
+          "count": 5,
+          "total": 271,
+          "percent": "1.8"
+        },
+        "handover_fail": {
+          "count": 33,
+          "total": 287,
+          "percent": "11.5"
+        }
+      }
+    },
+    {
+      "date": "2026-05-26",
+      "categories": {
+        "signal_weak": {
+          "count": 35,
+          "total": 213,
+          "percent": "16.4"
+        },
+        "network_resource": {
+          "count": 39,
+          "total": 231,
+          "percent": "16.9"
+        },
+        "no_network": {
+          "count": 40,
+          "total": 224,
+          "percent": "17.9"
+        },
+        "switch_4_5g": {
+          "count": 34,
+          "total": 102,
+          "percent": "33.3"
+        },
+        "restart": {
+          "count": 21,
+          "total": 293,
+          "percent": "7.2"
+        },
+        "bandwidth": {
+          "count": 19,
+          "total": 255,
+          "percent": "7.5"
+        },
+        "register_fail": {
+          "count": 14,
+          "total": 184,
+          "percent": "7.6"
+        },
+        "handover_fail": {
+          "count": 46,
+          "total": 200,
+          "percent": "23.0"
+        }
+      }
+    },
+    {
+      "date": "2026-05-27",
+      "categories": {
+        "signal_weak": {
+          "count": 28,
+          "total": 142,
+          "percent": "19.7"
+        },
+        "network_resource": {
+          "count": 36,
+          "total": 278,
+          "percent": "12.9"
+        },
+        "no_network": {
+          "count": 9,
+          "total": 271,
+          "percent": "3.3"
+        },
+        "switch_4_5g": {
+          "count": 27,
+          "total": 231,
+          "percent": "11.7"
+        },
+        "restart": {
+          "count": 8,
+          "total": 206,
+          "percent": "3.9"
+        },
+        "bandwidth": {
+          "count": 6,
+          "total": 256,
+          "percent": "2.3"
+        },
+        "register_fail": {
+          "count": 27,
+          "total": 297,
+          "percent": "9.1"
+        },
+        "handover_fail": {
+          "count": 5,
+          "total": 113,
+          "percent": "4.4"
+        }
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "categories": {
+        "signal_weak": {
+          "count": 21,
+          "total": 271,
+          "percent": "7.7"
+        },
+        "network_resource": {
+          "count": 29,
+          "total": 125,
+          "percent": "23.2"
+        },
+        "no_network": {
+          "count": 28,
+          "total": 214,
+          "percent": "13.1"
+        },
+        "switch_4_5g": {
+          "count": 20,
+          "total": 256,
+          "percent": "7.8"
+        },
+        "restart": {
+          "count": 45,
+          "total": 215,
+          "percent": "20.9"
+        },
+        "bandwidth": {
+          "count": 47,
+          "total": 153,
+          "percent": "30.7"
+        },
+        "register_fail": {
+          "count": 36,
+          "total": 210,
+          "percent": "17.1"
+        },
+        "handover_fail": {
+          "count": 14,
+          "total": 226,
+          "percent": "6.2"
+        }
+      }
+    },
+    {
+      "date": "2026-05-29",
+      "categories": {
+        "signal_weak": {
+          "count": 14,
+          "total": 296,
+          "percent": "4.7"
+        },
+        "network_resource": {
+          "count": 26,
+          "total": 172,
+          "percent": "15.1"
+        },
+        "no_network": {
+          "count": 47,
+          "total": 261,
+          "percent": "18.0"
+        },
+        "switch_4_5g": {
+          "count": 9,
+          "total": 185,
+          "percent": "4.9"
+        },
+        "restart": {
+          "count": 28,
+          "total": 224,
+          "percent": "12.5"
+        },
+        "bandwidth": {
+          "count": 38,
+          "total": 250,
+          "percent": "15.2"
+        },
+        "register_fail": {
+          "count": 45,
+          "total": 123,
+          "percent": "36.6"
+        },
+        "handover_fail": {
+          "count": 27,
+          "total": 139,
+          "percent": "19.4"
+        }
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "categories": {
+        "signal_weak": {
+          "count": 6,
+          "total": 118,
+          "percent": "5.1"
+        },
+        "network_resource": {
+          "count": 40,
+          "total": 102,
+          "percent": "39.2"
+        },
+        "no_network": {
+          "count": 19,
+          "total": 175,
+          "percent": "10.9"
+        },
+        "switch_4_5g": {
+          "count": 51,
+          "total": 207,
+          "percent": "24.6"
+        },
+        "restart": {
+          "count": 6,
+          "total": 254,
+          "percent": "2.4"
+        },
+        "bandwidth": {
+          "count": 50,
+          "total": 112,
+          "percent": "44.6"
+        },
+        "register_fail": {
+          "count": 25,
+          "total": 113,
+          "percent": "22.1"
+        },
+        "handover_fail": {
+          "count": 53,
+          "total": 129,
+          "percent": "41.1"
+        }
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "categories": {
+        "signal_weak": {
+          "count": 49,
+          "total": 247,
+          "percent": "19.8"
+        },
+        "network_resource": {
+          "count": 37,
+          "total": 149,
+          "percent": "24.8"
+        },
+        "no_network": {
+          "count": 38,
+          "total": 222,
+          "percent": "17.1"
+        },
+        "switch_4_5g": {
+          "count": 44,
+          "total": 136,
+          "percent": "32.4"
+        },
+        "restart": {
+          "count": 39,
+          "total": 263,
+          "percent": "14.8"
+        },
+        "bandwidth": {
+          "count": 41,
+          "total": 209,
+          "percent": "19.6"
+        },
+        "register_fail": {
+          "count": 34,
+          "total": 226,
+          "percent": "15.0"
+        },
+        "handover_fail": {
+          "count": 16,
+          "total": 242,
+          "percent": "6.6"
+        }
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "categories": {
+        "signal_weak": {
+          "count": 47,
+          "total": 233,
+          "percent": "20.2"
+        },
+        "network_resource": {
+          "count": 13,
+          "total": 203,
+          "percent": "6.4"
+        },
+        "no_network": {
+          "count": 22,
+          "total": 148,
+          "percent": "14.9"
+        },
+        "switch_4_5g": {
+          "count": 42,
+          "total": 122,
+          "percent": "34.4"
+        },
+        "restart": {
+          "count": 27,
+          "total": 241,
+          "percent": "11.2"
+        },
+        "bandwidth": {
+          "count": 9,
+          "total": 147,
+          "percent": "6.1"
+        },
+        "register_fail": {
+          "count": 16,
+          "total": 244,
+          "percent": "6.6"
+        },
+        "handover_fail": {
+          "count": 44,
+          "total": 260,
+          "percent": "16.9"
+        }
+      }
+    },
+    {
+      "date": "2026-06-02",
+      "categories": {
+        "signal_weak": {
+          "count": 40,
+          "total": 258,
+          "percent": "15.5"
+        },
+        "network_resource": {
+          "count": 10,
+          "total": 250,
+          "percent": "4.0"
+        },
+        "no_network": {
+          "count": 41,
+          "total": 195,
+          "percent": "21.0"
+        },
+        "switch_4_5g": {
+          "count": 35,
+          "total": 147,
+          "percent": "23.8"
+        },
+        "restart": {
+          "count": 10,
+          "total": 154,
+          "percent": "6.5"
+        },
+        "bandwidth": {
+          "count": 46,
+          "total": 244,
+          "percent": "18.9"
+        },
+        "register_fail": {
+          "count": 25,
+          "total": 157,
+          "percent": "15.9"
+        },
+        "handover_fail": {
+          "count": 53,
+          "total": 277,
+          "percent": "19.1"
+        }
+      }
+    },
+    {
+      "date": "2026-06-03",
+      "categories": {
+        "signal_weak": {
+          "count": 33,
+          "total": 187,
+          "percent": "17.6"
+        },
+        "network_resource": {
+          "count": 7,
+          "total": 297,
+          "percent": "2.4"
+        },
+        "no_network": {
+          "count": 10,
+          "total": 242,
+          "percent": "4.1"
+        },
+        "switch_4_5g": {
+          "count": 28,
+          "total": 276,
+          "percent": "10.1"
+        },
+        "restart": {
+          "count": 47,
+          "total": 163,
+          "percent": "28.8"
+        },
+        "bandwidth": {
+          "count": 37,
+          "total": 245,
+          "percent": "15.1"
+        },
+        "register_fail": {
+          "count": 34,
+          "total": 174,
+          "percent": "19.5"
+        },
+        "handover_fail": {
+          "count": 16,
+          "total": 190,
+          "percent": "8.4"
+        }
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "categories": {
+        "signal_weak": {
+          "count": 26,
+          "total": 116,
+          "percent": "22.4"
+        },
+        "network_resource": {
+          "count": 54,
+          "total": 144,
+          "percent": "37.5"
+        },
+        "no_network": {
+          "count": 29,
+          "total": 289,
+          "percent": "10.0"
+        },
+        "switch_4_5g": {
+          "count": 21,
+          "total": 205,
+          "percent": "10.2"
+        },
+        "restart": {
+          "count": 30,
+          "total": 172,
+          "percent": "17.4"
+        },
+        "bandwidth": {
+          "count": 28,
+          "total": 142,
+          "percent": "19.7"
+        },
+        "register_fail": {
+          "count": 47,
+          "total": 287,
+          "percent": "16.4"
+        },
+        "handover_fail": {
+          "count": 25,
+          "total": 103,
+          "percent": "24.3"
+        }
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "categories": {
+        "signal_weak": {
+          "count": 19,
+          "total": 245,
+          "percent": "7.8"
+        },
+        "network_resource": {
+          "count": 51,
+          "total": 191,
+          "percent": "26.7"
+        },
+        "no_network": {
+          "count": 48,
+          "total": 232,
+          "percent": "20.7"
+        },
+        "switch_4_5g": {
+          "count": 14,
+          "total": 134,
+          "percent": "10.4"
+        },
+        "restart": {
+          "count": 17,
+          "total": 285,
+          "percent": "6.0"
+        },
+        "bandwidth": {
+          "count": 15,
+          "total": 239,
+          "percent": "6.3"
+        },
+        "register_fail": {
+          "count": 6,
+          "total": 200,
+          "percent": "3.0"
+        },
+        "handover_fail": {
+          "count": 34,
+          "total": 216,
+          "percent": "15.7"
+        }
+      }
+    },
+    {
+      "date": "2026-06-06",
+      "categories": {
+        "signal_weak": {
+          "count": 8,
+          "total": 174,
+          "percent": "4.6"
+        },
+        "network_resource": {
+          "count": 44,
+          "total": 238,
+          "percent": "18.5"
+        },
+        "no_network": {
+          "count": 17,
+          "total": 279,
+          "percent": "6.1"
+        },
+        "switch_4_5g": {
+          "count": 7,
+          "total": 263,
+          "percent": "2.7"
+        },
+        "restart": {
+          "count": 54,
+          "total": 294,
+          "percent": "18.4"
+        },
+        "bandwidth": {
+          "count": 6,
+          "total": 240,
+          "percent": "2.5"
+        },
+        "register_fail": {
+          "count": 15,
+          "total": 113,
+          "percent": "13.3"
+        },
+        "handover_fail": {
+          "count": 47,
+          "total": 129,
+          "percent": "36.4"
+        }
+      }
+    },
+    {
+      "date": "2026-06-07",
+      "categories": {
+        "signal_weak": {
+          "count": 51,
+          "total": 199,
+          "percent": "25.6"
+        },
+        "network_resource": {
+          "count": 41,
+          "total": 285,
+          "percent": "14.4"
+        },
+        "no_network": {
+          "count": 36,
+          "total": 126,
+          "percent": "28.6"
+        },
+        "switch_4_5g": {
+          "count": 50,
+          "total": 288,
+          "percent": "17.4"
+        },
+        "restart": {
+          "count": 37,
+          "total": 207,
+          "percent": "17.9"
+        },
+        "bandwidth": {
+          "count": 43,
+          "total": 137,
+          "percent": "31.4"
+        },
+        "register_fail": {
+          "count": 28,
+          "total": 226,
+          "percent": "12.4"
+        },
+        "handover_fail": {
+          "count": 6,
+          "total": 242,
+          "percent": "2.5"
+        }
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "categories": {
+        "signal_weak": {
+          "count": 44,
+          "total": 128,
+          "percent": "34.4"
+        },
+        "network_resource": {
+          "count": 38,
+          "total": 132,
+          "percent": "28.8"
+        },
+        "no_network": {
+          "count": 5,
+          "total": 173,
+          "percent": "2.9"
+        },
+        "switch_4_5g": {
+          "count": 43,
+          "total": 217,
+          "percent": "19.8"
+        },
+        "restart": {
+          "count": 24,
+          "total": 216,
+          "percent": "11.1"
+        },
+        "bandwidth": {
+          "count": 34,
+          "total": 234,
+          "percent": "14.5"
+        },
+        "register_fail": {
+          "count": 37,
+          "total": 139,
+          "percent": "26.6"
+        },
+        "handover_fail": {
+          "count": 15,
+          "total": 155,
+          "percent": "9.7"
+        }
+      }
+    },
+    {
+      "date": "2026-06-09",
+      "categories": {
+        "signal_weak": {
+          "count": 37,
+          "total": 257,
+          "percent": "14.4"
+        },
+        "network_resource": {
+          "count": 35,
+          "total": 179,
+          "percent": "19.6"
+        },
+        "no_network": {
+          "count": 24,
+          "total": 220,
+          "percent": "10.9"
+        },
+        "switch_4_5g": {
+          "count": 36,
+          "total": 146,
+          "percent": "24.7"
+        },
+        "restart": {
+          "count": 7,
+          "total": 225,
+          "percent": "3.1"
+        },
+        "bandwidth": {
+          "count": 21,
+          "total": 235,
+          "percent": "8.9"
+        },
+        "register_fail": {
+          "count": 46,
+          "total": 252,
+          "percent": "18.3"
+        },
+        "handover_fail": {
+          "count": 28,
+          "total": 268,
+          "percent": "10.4"
+        }
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "categories": {
+        "signal_weak": {
+          "count": 29,
+          "total": 279,
+          "percent": "10.4"
+        },
+        "network_resource": {
+          "count": 49,
+          "total": 109,
+          "percent": "45.0"
+        },
+        "no_network": {
+          "count": 46,
+          "total": 230,
+          "percent": "20.0"
+        },
+        "switch_4_5g": {
+          "count": 24,
+          "total": 168,
+          "percent": "14.3"
+        },
+        "restart": {
+          "count": 35,
+          "total": 255,
+          "percent": "13.7"
+        },
+        "bandwidth": {
+          "count": 37,
+          "total": 193,
+          "percent": "19.2"
+        },
+        "register_fail": {
+          "count": 26,
+          "total": 242,
+          "percent": "10.7"
+        },
+        "handover_fail": {
+          "count": 54,
+          "total": 258,
+          "percent": "20.9"
+        }
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "categories": {
+        "signal_weak": {
+          "count": 22,
+          "total": 208,
+          "percent": "10.6"
+        },
+        "network_resource": {
+          "count": 42,
+          "total": 156,
+          "percent": "26.9"
+        },
+        "no_network": {
+          "count": 15,
+          "total": 277,
+          "percent": "5.4"
+        },
+        "switch_4_5g": {
+          "count": 17,
+          "total": 193,
+          "percent": "8.8"
+        },
+        "restart": {
+          "count": 22,
+          "total": 264,
+          "percent": "8.3"
+        },
+        "bandwidth": {
+          "count": 28,
+          "total": 194,
+          "percent": "14.4"
+        },
+        "register_fail": {
+          "count": 35,
+          "total": 155,
+          "percent": "22.6"
+        },
+        "handover_fail": {
+          "count": 17,
+          "total": 171,
+          "percent": "9.9"
+        }
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "categories": {
+        "signal_weak": {
+          "count": 15,
+          "total": 233,
+          "percent": "6.4"
+        },
+        "network_resource": {
+          "count": 39,
+          "total": 203,
+          "percent": "19.2"
+        },
+        "no_network": {
+          "count": 34,
+          "total": 124,
+          "percent": "27.4"
+        },
+        "switch_4_5g": {
+          "count": 10,
+          "total": 122,
+          "percent": "8.2"
+        },
+        "restart": {
+          "count": 5,
+          "total": 177,
+          "percent": "2.8"
+        },
+        "bandwidth": {
+          "count": 15,
+          "total": 291,
+          "percent": "5.2"
+        },
+        "register_fail": {
+          "count": 48,
+          "total": 268,
+          "percent": "17.9"
+        },
+        "handover_fail": {
+          "count": 26,
+          "total": 284,
+          "percent": "9.2"
+        }
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "categories": {
+        "signal_weak": {
+          "count": 8,
+          "total": 162,
+          "percent": "4.9"
+        },
+        "network_resource": {
+          "count": 36,
+          "total": 250,
+          "percent": "14.4"
+        },
+        "no_network": {
+          "count": 53,
+          "total": 171,
+          "percent": "31.0"
+        },
+        "switch_4_5g": {
+          "count": 53,
+          "total": 251,
+          "percent": "21.1"
+        },
+        "restart": {
+          "count": 42,
+          "total": 186,
+          "percent": "22.6"
+        },
+        "bandwidth": {
+          "count": 6,
+          "total": 188,
+          "percent": "3.2"
+        },
+        "register_fail": {
+          "count": 7,
+          "total": 181,
+          "percent": "3.9"
+        },
+        "handover_fail": {
+          "count": 35,
+          "total": 197,
+          "percent": "17.8"
+        }
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "categories": {
+        "signal_weak": {
+          "count": 47,
+          "total": 291,
+          "percent": "16.2"
+        },
+        "network_resource": {
+          "count": 33,
+          "total": 297,
+          "percent": "11.1"
+        },
+        "no_network": {
+          "count": 22,
+          "total": 218,
+          "percent": "10.1"
+        },
+        "switch_4_5g": {
+          "count": 46,
+          "total": 180,
+          "percent": "25.6"
+        },
+        "restart": {
+          "count": 25,
+          "total": 195,
+          "percent": "12.8"
+        },
+        "bandwidth": {
+          "count": 47,
+          "total": 189,
+          "percent": "24.9"
+        },
+        "register_fail": {
+          "count": 16,
+          "total": 294,
+          "percent": "5.4"
+        },
+        "handover_fail": {
+          "count": 48,
+          "total": 110,
+          "percent": "43.6"
+        }
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "categories": {
+        "signal_weak": {
+          "count": 40,
+          "total": 220,
+          "percent": "18.2"
+        },
+        "network_resource": {
+          "count": 26,
+          "total": 144,
+          "percent": "18.1"
+        },
+        "no_network": {
+          "count": 41,
+          "total": 161,
+          "percent": "25.5"
+        },
+        "switch_4_5g": {
+          "count": 39,
+          "total": 109,
+          "percent": "35.8"
+        },
+        "restart": {
+          "count": 12,
+          "total": 108,
+          "percent": "11.1"
+        },
+        "bandwidth": {
+          "count": 34,
+          "total": 286,
+          "percent": "11.9"
+        },
+        "register_fail": {
+          "count": 29,
+          "total": 207,
+          "percent": "14.0"
+        },
+        "handover_fail": {
+          "count": 7,
+          "total": 223,
+          "percent": "3.1"
+        }
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "categories": {
+        "signal_weak": {
+          "count": 33,
+          "total": 149,
+          "percent": "22.1"
+        },
+        "network_resource": {
+          "count": 23,
+          "total": 191,
+          "percent": "12.0"
+        },
+        "no_network": {
+          "count": 10,
+          "total": 208,
+          "percent": "4.8"
+        },
+        "switch_4_5g": {
+          "count": 32,
+          "total": 238,
+          "percent": "13.4"
+        },
+        "restart": {
+          "count": 45,
+          "total": 117,
+          "percent": "38.5"
+        },
+        "bandwidth": {
+          "count": 25,
+          "total": 183,
+          "percent": "13.7"
+        },
+        "register_fail": {
+          "count": 38,
+          "total": 120,
+          "percent": "31.7"
+        },
+        "handover_fail": {
+          "count": 20,
+          "total": 136,
+          "percent": "14.7"
+        }
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "categories": {
+        "signal_weak": {
+          "count": 26,
+          "total": 174,
+          "percent": "14.9"
+        },
+        "network_resource": {
+          "count": 20,
+          "total": 238,
+          "percent": "8.4"
+        },
+        "no_network": {
+          "count": 29,
+          "total": 255,
+          "percent": "11.4"
+        },
+        "switch_4_5g": {
+          "count": 25,
+          "total": 263,
+          "percent": "9.5"
+        },
+        "restart": {
+          "count": 32,
+          "total": 126,
+          "percent": "25.4"
+        },
+        "bandwidth": {
+          "count": 12,
+          "total": 184,
+          "percent": "6.5"
+        },
+        "register_fail": {
+          "count": 51,
+          "total": 233,
+          "percent": "21.9"
+        },
+        "handover_fail": {
+          "count": 29,
+          "total": 249,
+          "percent": "11.6"
+        }
+      }
+    }
+  ]
+}

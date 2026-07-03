@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ping_20260702074740_izb4",
+    "taskId": "ping_20260702074740_izb4",
+    "taskName": "testtest121",
+    "taskType": "立即执行",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vid": "868371055248377",
+    "terminalStatus": "在线",
+    "taskStatus": "完成",
+    "target": "公网DNS",
+    "serverIp": "8.8.8.8",
+    "startTime": "2026-07-02T07:47:40.307Z",
+    "endTime": "2026-07-02T07:49:40.307Z",
+    "duration": 120,
+    "frequency": 5,
+    "dispatched": true,
+    "completed": true,
+    "createdAt": "2026-07-02T07:47:40.307Z",
+    "updatedAt": "2026-07-02T07:49:41.732Z",
+    "lastPingResult": {
+      "taskId": "ping_20260702074740_izb4",
+      "vid": "868371055248377",
+      "targetIp": "8.8.8.8",
+      "time": "2026-07-02T07:49:41.258Z",
+      "delay": 56,
+      "loseRate": 0,
+      "latitude": 39.35674298683593,
+      "longitude": 116.77636829921795,
+      "altitude": 24.49538261740036
+    },
+    "pingStats": {
+      "totalTests": 24,
+      "avgDelay": 62.5,
+      "maxDelay": 89,
+      "minDelay": 49,
+      "packetLoss": 0
+    }
+  },
+  {
+    "id": "ping_20260702062431_puda",
+    "taskId": "ping_20260702062431_puda",
+    "taskName": "test",
+    "taskType": "立即执行",
+    "modelId": "VM001",
+    "modelName": "智行 X1",
+    "vid": "868371055248377",
+    "terminalStatus": "在线",
+    "taskStatus": "完成",
+    "target": "公网DNS",
+    "serverIp": "8.8.8.8",
+    "startTime": "2026-07-02T06:24:31.097Z",
+    "endTime": "2026-07-02T06:26:31.097Z",
+    "duration": 120,
+    "frequency": 5,
+    "dispatched": true,
+    "completed": true,
+    "createdAt": "2026-07-02T06:24:31.097Z",
+    "updatedAt": "2026-07-02T06:26:34.178Z",
+    "lastPingResult": {
+      "taskId": "ping_20260702062431_puda",
+      "vid": "868371055248377",
+      "targetIp": "8.8.8.8",
+      "time": "2026-07-02T06:26:31.854Z",
+      "delay": 50,
+      "loseRate": 0,
+      "latitude": 40.41794271741879,
+      "longitude": 116.85678913947811,
+      "altitude": 75.91421195346071
+    },
+    "pingStats": {
+      "totalTests": 24,
+      "avgDelay": 68.7,
+      "maxDelay": 95,
+      "minDelay": 50,
+      "packetLoss": 0
+    }
+  }
+]

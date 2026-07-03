@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(findstr /n \"IMEI IMSI ICCID CID TAC\" \"C:\\\\Users\\\\gaoye\\\\Desktop\\\\RP设计\\\\v-wise-monitor\\\\index.html\")"
+    ]
+  }
+}
